@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blindaje Energético 2025 | Alejandro Energy</title>
+    <title>Blindaje Energético 2025 | AlenergySmartSolutions</title>
     <style>
         :root {
             --primary: #004d40; /* Verde Corporativo */
@@ -37,10 +37,10 @@
         /* HEADER */
         header { background: var(--white); padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: -1px; }
         .logo span { color: var(--accent); }
 
-        /* HERO SECTION (Pilar: Ahorro + Urgencia) */
+        /* HERO SECTION */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -53,7 +53,7 @@
         .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
         .highlight { color: var(--accent); }
 
-        /* SECCIÓN DE CRISIS (Pilar: Miedo/Realidad) */
+        /* SECCIÓN DE CRISIS */
         .crisis-banner {
             background-color: var(--dark);
             color: var(--white);
@@ -63,27 +63,36 @@
         .crisis-content { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; text-align: center; }
         .alert-icon { font-size: 2rem; color: var(--alert); animation: pulse 1.5s infinite; }
 
-        /* CALCULADORA (Pilar: Avaricia/Lógica) */
+        /* CALCULADORA AVANZADA */
         .calculator-section { padding: 60px 0; background: var(--white); text-align: center; }
         .calc-box {
             background: var(--light);
             padding: 30px;
             border-radius: 15px;
-            max-width: 500px;
+            max-width: 600px;
             margin: 30px auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border: 2px solid var(--primary);
+            text-align: left;
         }
-        .calc-input {
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--primary); }
+        .input-group input[type="number"] {
             width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
+            padding: 12px;
+            border: 1px solid #ccc;
             border-radius: 8px;
             font-size: 1rem;
         }
-        .result-box { margin-top: 20px; display: none; }
-        .savings-amount { font-size: 2rem; color: var(--primary); font-weight: bold; }
+        
+        /* Slider de Rango */
+        .range-container { margin: 20px 0; }
+        input[type=range] { width: 100%; height: 10px; border-radius: 5px; background: #d3d3d3; outline: none; -webkit-appearance: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 25px; height: 25px; border-radius: 50%; background: var(--accent); cursor: pointer; }
+        
+        .result-box { margin-top: 30px; display: none; background: white; padding: 20px; border-radius: 10px; border-left: 5px solid var(--accent); text-align: center; }
+        .savings-monthly { font-size: 1.5rem; color: var(--dark); margin-bottom: 5px; }
+        .savings-annual { font-size: 2.2rem; color: var(--primary); font-weight: 800; }
 
         /* MODELO PPA */
         .ppa-section { padding: 60px 0; }
@@ -126,16 +135,18 @@
 
     <header>
         <div class="container nav-flex">
-            <div class="logo">Alejandro<span>SmartEnergy</span></div>
-            <a href="#contacto" onclick="openWhatsApp()" class="btn btn-primary">Agendar Consultoría Gratis</a>
+            <div class="logo">Alenergy<span>SmartSolutions</span></div>
+            <a href="#contacto" onclick="openWhatsApp()" class="btn btn-primary">Agendar Consultoría</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>Blinda tu Empresa ante el <br> <span class="highlight">Déficit Energético 2025</span></h1>
+            <h1>Blinda tu Empresa ante el <br> <span class="highlight">Déficit Energético 2026-27 </span></h1>
             <p>No permitas que los apagones o las tarifas variables detengan tu producción. Instala Energía Solar con <strong>Cero Inversión Inicial</strong>.</p>
-            <button onclick="scrollToCalc()" class="btn btn-primary">Calcular mi Ahorro Ahora</button>
+            
+            <button onclick="scrollToCalc()" class="btn btn-primary">⬇️ Ir al Simulador Básico Solar</button>
+            
             <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;">*Modelo PPA: Nosotros invertimos, tú ahorras.</p>
         </div>
     </section>
@@ -143,46 +154,94 @@
     <section class="crisis-banner">
         <div class="container crisis-content">
             <div class="alert-icon">⚠️</div>
-            <div>
+            <div style="text-align: center;">
                 <h3>Alerta de Estabilidad Energética</h3>
-                <p>El nivel de los embalses es crítico. Asegura tu tarifa eléctrica hoy antes de la próxima subida.</p>
+                <p>La demanda nacional ya supera la oferta y los nuevos proyectos de generación no avanzan al ritmo necesario. Asegura tu tarifa hoy ante el desabastecimiento.</p>
+                
+                <a href="https://www.portafolio.co/energia/salidas-para-encarar-el-deficit-energetico-que-amenaza-al-sistema-electrico-en-colombia-642454" target="_blank" class="glow-link">
+                    🔗 Saber más
+                </a>
             </div>
         </div>
+        
+        <style>
+            .glow-link {
+                color: white; 
+                font-weight: bold; 
+                text-decoration: underline;
+                margin-top: 10px; 
+                display: inline-block;
+                transition: all 0.3s ease;
+            }
+            
+            .glow-link:hover {
+                color: var(--accent); /* Se vuelve verde brillante */
+                text-shadow: 0 0 10px var(--accent); /* Efecto de luz de neón */
+                text-decoration: none;
+                transform: translateX(5px); /* Se mueve un poco a la derecha */
+            }
+        </style>
     </section>
 
     <section id="calculadora" class="calculator-section">
         <div class="container">
-            <h2 style="color: var(--primary);">¿Cuánto dinero estás perdiendo mensualmente?</h2>
-            <p>Ingresa el valor promedio de tu factura de energía actual.</p>
+            <h2 style="color: var(--primary);">Simulador Básico de Ahorro Solar</h2>
+            <p>Ingresa los datos de tu factura actual para estimar tu beneficio.</p>
             
             <div class="calc-box">
-                <label for="billAmount" style="display:block; text-align:left; font-weight:bold; margin-bottom:5px;">Valor Factura Mensual (COP):</label>
-                <input type="number" id="billAmount" class="calc-input" placeholder="Ej: 2000000">
-                <button onclick="calculateSavings()" class="btn btn-primary" style="width:100%">Ver Potencial de Ahorro</button>
+                <div class="input-group">
+                    <label for="kwhInput">1️⃣ Consumo Mensual (kWh):</label>
+                    <input type="number" id="kwhInput" placeholder="Ej: 800" min="0">
+                    <small style="color:#666;">Lo encuentras en tu factura como "Consumo Activa".</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="costInput">2️⃣ Costo por kWh ($ COP):</label>
+                    <input type="number" id="costInput" placeholder="Ej: 800" min="0">
+                    <small style="color:#666;">Valor unitario que pagas por cada kWh.</small>
+                </div>
+
+                <div class="input-group range-container">
+                    <label for="coverageInput">3️⃣ % Cobertura Solar Estimada: <span id="coverageVal" style="color:var(--accent); font-weight:800;">70%</span></label>
+                    <input type="range" id="coverageInput" min="30" max="90" value="70" oninput="updateRangeVal(this.value)">
+                    <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:#888;">
+                        <span>30% (Mínimo)</span>
+                        <span>90% (Máximo)</span>
+                    </div>
+                </div>
+
+                <button onclick="calculateSavings()" class="btn btn-primary" style="width:100%">CALCULAR AHORRO 🧮</button>
 
                 <div id="result" class="result-box">
-                    <p>Podrías ahorrar aproximadamente:</p>
-                    <div class="savings-amount" id="savingsValue">$0</div>
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Anuales con el Modelo PPA*</p>
-                    <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ddd;">
-                    <p style="color: var(--primary); font-weight: bold;">Inversión requerida por ti: $0</p>
-                    <button onclick="openWhatsAppWithAmount()" class="btn" style="background:#25d366; color:white; margin-top:10px; width:100%">Solicitar Estudio con este Ahorro</button>
+                    <p>Ahorro Mensual Estimado:</p>
+                    <div class="savings-monthly" id="monthlyVal">$0</div>
+                    
+                    <p style="margin-top:15px;">Ahorro Anual Estimado:</p>
+                    <div class="savings-annual" id="annualVal">$0</div>
+                    
+                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+                    
+                    <p style="color: var(--primary); font-weight: bold; margin-bottom:10px;">Inversión requerida por ti: $0 (Modelo PPA)</p>
+                    
+                    <button onclick="openWhatsAppWithAmount()" class="btn" style="background:#25d366; color:white; width:100%">
+                        Solicitar este Ahorro en WhatsApp
+                    </button>
                 </div>
             </div>
-            <p style="font-size: 0.8rem; color: #888;">*Cálculo estimado basado en promedios del mercado. Requiere visita técnica.</p>
+            <p style="font-size: 0.8rem; color: #888;">*Estimación sujeta a visita técnica y análisis de techos.</p>
         </div>
     </section>
 
     <section class="ppa-section">
         <div class="container">
             <h2 style="text-align: center; color: var(--dark); margin-bottom: 10px;">¿Cómo funciona el Modelo PPA?</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Tu techo se convierte en un activo, sin que pongas un solo peso.</p>
+            <p style="text-align: center; margin-bottom: 30px;">Tu techo se convierte en un activo con <strong>AlenergySmartSolutions</strong>.</p>
             
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <h3>Instalamos Gratis</h3>
-                    <p>La Organización 20-50 asume el 100% del costo de diseño, paneles e instalación en tu empresa.</p>
+                    <p>La organización asume el 100% del costo de diseño, paneles e instalación en tu empresa.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">2</div>
@@ -194,27 +253,42 @@
                     <h3>Te lo quedas</h3>
                     <p>Al finalizar el contrato, el sistema pasa a ser propiedad tuya para siempre.</p>
                 </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Beneficios tributarios</h3>
+                    <p>Incentivos y Beneficios Fiscales</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2025 Alejandro Smart Energy | Organización 20-50</p>
-            <p>Líderes en Transición Energética y Modelos PPA.</p>
+            <p>AlenergySmartSolutions </p>
+            <p>
+                <a href="https://2050latam.org/" target="_blank" style="color: inherit; text-decoration: none; transition: 0.3s;">
+                    2050 Latam
+                </a>
+            </p>
+            <p>Programa Nacional de Inversión en Energía Renovable</p>
         </div>
     </footer>
 
     <a href="#" onclick="openWhatsApp()" class="whatsapp-float">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382C17.112 14.382 16.812 14.49 16.572 14.694C16.332 14.898 16.14 15.198 15.984 15.582C15.828 15.966 15.708 16.158 15.612 16.158C15.516 16.158 15.3 16.086 14.964 15.942C14.628 15.798 14.22 15.582 13.74 15.3C12.852 14.772 12.144 14.1 11.616 13.296C11.328 12.852 11.184 12.492 11.184 12.228C11.184 12.108 11.244 11.952 11.364 11.772C11.484 11.592 11.628 11.412 11.796 11.22C11.964 11.028 12.06 10.872 12.084 10.752C12.132 10.608 12.084 10.452 11.952 10.272C11.82 10.092 11.436 9.144 10.8 7.428C10.584 6.84 10.356 6.552 10.116 6.552C9.972 6.552 9.804 6.588 9.612 6.648C9.42 6.708 9.216 6.828 9 7.02C8.784 7.212 8.568 7.5 8.364 7.896C8.16 8.292 8.052 8.688 8.052 9.072C8.052 9.6 8.208 10.224 8.52 10.944C8.832 11.664 9.42 12.564 10.284 13.644C11.532 15.204 13.068 16.428 14.892 17.316C15.54 17.628 16.092 17.784 16.548 17.784C16.884 17.784 17.172 17.724 17.412 17.604C17.652 17.484 17.916 17.268 18.192 16.968C18.468 16.668 18.66 16.356 18.756 16.032C18.852 15.708 18.828 15.432 18.684 15.216C18.54 15 18.132 14.724 17.472 14.382ZM13.5 2C7.152 2 2 7.152 2 13.5C2 15.528 2.528 17.424 3.468 19.104L2 24.504L7.548 23.064C9.156 23.976 11.004 24.504 13.008 24.504C19.356 24.504 24.504 19.356 24.504 13.008C24.504 6.66 19.356 1.5 13.008 1.5L13.5 2Z"/></svg>
-        <span>Contáctame por WhatsApp</span>
+        <span>Contactar a Alenergy</span>
     </a>
 
     <script>
-        const phone = "573115785211";
+        const phone = "573144807807";
 
         function scrollToCalc() {
             document.getElementById('calculadora').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Actualizar el número del porcentaje cuando se mueve el slider
+        function updateRangeVal(val) {
+            document.getElementById('coverageVal').innerText = val + "%";
         }
 
         function formatCurrency(value) {
@@ -222,32 +296,42 @@
         }
 
         function calculateSavings() {
-            const billInput = document.getElementById('billAmount').value;
-            const resultBox = document.getElementById('result');
-            const savingsDisplay = document.getElementById('savingsValue');
+            // 1. Obtener valores
+            const consumption = document.getElementById('kwhInput').value; // kWh
+            const costPerKwh = document.getElementById('costInput').value; // Precio
+            const coveragePercent = document.getElementById('coverageInput').value; // % (30-90)
 
-            if (billInput && billInput > 0) {
-                // Lógica simple: Estimación de ahorro del 20% mensual anualizado
-                // Ahorro mensual = Factura * 0.20
-                // Ahorro anual = Ahorro mensual * 12
-                const monthlySavings = billInput * 0.20;
+            const resultBox = document.getElementById('result');
+            const monthlyDisplay = document.getElementById('monthlyVal');
+            const annualDisplay = document.getElementById('annualVal');
+
+            if (consumption > 0 && costPerKwh > 0) {
+                // FÓRMULA: Consumo * Costo * (Porcentaje / 100)
+                const monthlySavings = consumption * costPerKwh * (coveragePercent / 100);
                 const annualSavings = monthlySavings * 12;
 
-                savingsDisplay.innerText = formatCurrency(annualSavings);
+                // Mostrar resultados formateados
+                monthlyDisplay.innerText = formatCurrency(monthlySavings);
+                annualDisplay.innerText = formatCurrency(annualSavings);
+                
                 resultBox.style.display = "block";
             } else {
-                alert("Por favor ingresa un valor válido de factura.");
+                alert("Por favor ingresa el Consumo y el Costo por kWh para calcular.");
             }
         }
 
+        // Botón general de WhatsApp
         function openWhatsApp() {
-            const msg = "Hola Alejandro, me interesa blindar mi empresa contra el déficit energético y conocer el modelo PPA.";
+            const msg = "Hola AlenergySmartSolutions, me interesa blindar mi empresa contra el déficit energético y conocer el modelo PPA.";
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
+        // Botón específico con el resultado del cálculo
         function openWhatsAppWithAmount() {
-            const savings = document.getElementById('savingsValue').innerText;
-            const msg = `Hola Alejandro, hice el cálculo en tu web y veo que podría ahorrar ${savings} al año con energía solar. Quiero validar si mi empresa aplica.`;
+            const annual = document.getElementById('annualVal').innerText;
+            const consumption = document.getElementById('kwhInput').value;
+            
+            const msg = `Hola AlenergySmartSolutions, usé su simulador. Con un consumo de ${consumption} kWh, me estima un ahorro anual de ${annual}. Quiero validar este proyecto.`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
